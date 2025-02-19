@@ -1,0 +1,27 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class LeftMedianOfSequences {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt();
+        int L = scanner.nextInt();
+        int[][] sequences = new int[N][L];
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < L; j++) {
+                sequences[i][j] = scanner.nextInt();
+            }
+        }
+        for (int i = 0; i < N; i++) {
+            for (int j = i + 1; j < N; j++) {
+                int[] combined = new int[2 * L];
+                System.arraycopy(sequences[i], 0, combined, 0, L);
+                System.arraycopy(sequences[j], 0, combined, L, L);
+                Arrays.sort(combined);
+                int medianIndex = (combined.length - 1) / 2;
+                System.out.println(combined[medianIndex]);
+            }
+        }
+        scanner.close();
+    }
+}
