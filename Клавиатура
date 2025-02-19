@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class KeyboardKeys {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] limits = new int[n];
+        for (int i = 0; i < n; i++) {
+            limits[i] = scanner.nextInt();
+        }
+        int k = scanner.nextInt();
+        int[] presses = new int[n];
+        for (int i = 0; i < k; i++) {
+            int keyIndex = scanner.nextInt() - 1;
+            presses[keyIndex]++;
+        }
+        for (int i = 0; i < n; i++) {
+            if (presses[i] > limits[i]) {
+                System.out.println("YES");
+            } else {
+                System.out.println("NO");
+            }
+        }
+        scanner.close();
+    }
+}
