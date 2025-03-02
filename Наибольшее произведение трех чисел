@@ -1,0 +1,23 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class MaxProductOfThree {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        Arrays.sort(arr);
+        long maxProduct1 = (long) arr[n - 1] * arr[n - 2] * arr[n - 3];
+        long maxProduct2 = (long) arr[0] * arr[1] * arr[n - 1];
+        long maxProduct = Math.max(maxProduct1, maxProduct2);
+        if (maxProduct == maxProduct1) {
+            System.out.println(arr[n - 1] + " " + arr[n - 2] + " " + arr[n - 3]);
+        } else {
+            System.out.println(arr[0] + " " + arr[1] + " " + arr[n - 1]);
+        }
+        scanner.close();
+    }
+}
